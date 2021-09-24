@@ -1,14 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+
+
+function EvenOdd() {
+  const [count, setCount] = useState(0);
+
+  return(
+    <View style={styles.container}>
+      <Button title={count % 2 == 0 ? "PAR" : "ÍMPAR"} onPress={() => setCount(count + 1)} color='red' />
+      <Text>{count}</Text>
+    </View>
+  )
+}
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <EvenOdd />
 }
 
 const styles = StyleSheet.create({
